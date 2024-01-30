@@ -4,7 +4,7 @@
 
 ### Archive Contents
 - `train_infer.py`: code for training and inferencing on the testing dataset
-- `input` folder: training and testing dataset folder
+- `input` folder: training and testing dataset folder (See Data setup below)
   - `kf-dataset`: Generated kids frontier dataset
   - `llm-detect-ai-generated-text/train_essays.csv`: The original training dataset
   - `daigt-v2-train-dataset/train_v2_drcat_02.csv`: Kaggle published dataset
@@ -14,27 +14,21 @@ Below are the shell commands used in each step, as run from the top level direct
 
 Download competition dataset
 ```
+mkdir input
 cd input/
 kaggle competitions download -c llm-detect-ai-generated-text
 unzip llm-detect-ai-generated-text.zip -d llm-detect-ai-generated-text
-cd ..
 ```
 Download daigt-v2-train-dataset
 ```
-cd input/
 kaggle datasets download -d thedrcat/daigt-v2-train-dataset
 unzip daigt-v2-train-dataset.zip -d daigt-v2-train-dataset
-cd ../..
-
-kaggle competitions download -c <competition name> -f train.csv
-kaggle competitions download -c <competition name> -f test_stage_1.csv
 ```
 Download kids-frontier dataset
 ```
-cd input/
 kaggle datasets download -d xyzdivergence/kf-dataset
 unzip kf-dataset.zip -d kf-dataset
-cd ../..
+cd ..
 ```
 
 ### Hardware: 

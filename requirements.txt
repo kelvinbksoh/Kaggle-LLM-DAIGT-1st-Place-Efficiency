@@ -1,3 +1,4 @@
+kaggle
 scikit-learn==1.2.2
 numpy
 lightgbm==3.3.2
