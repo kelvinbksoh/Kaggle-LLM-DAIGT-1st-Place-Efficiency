@@ -2,7 +2,7 @@
 - Solution summary: https://www.kaggle.com/competitions/llm-detect-ai-generated-text/discussion/471898 
 - Notebook link: https://www.kaggle.com/code/xyzdivergence/llm-daigt-sub?scriptVersionId=153307051
 
-###ARCHIVE CONTENTS
+### ARCHIVE CONTENTS
 - `train_infer.py`: code for training and inferencing on the testing dataset
 - `input` folder: training and testing dataset folder
   - `kf-dataset`: Generated kids frontier dataset
