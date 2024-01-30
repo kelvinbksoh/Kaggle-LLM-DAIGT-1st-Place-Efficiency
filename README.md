@@ -1,13 +1,41 @@
-## Kaggle - LLM DAIGT (1st-Place-Efficiency-Solution)
+## Kaggle: LLM - Detect AI Generated Text (1st-Place-Efficiency-Solution)
 - Solution summary: https://www.kaggle.com/competitions/llm-detect-ai-generated-text/discussion/471898 
 - Notebook link: https://www.kaggle.com/code/xyzdivergence/llm-daigt-sub?scriptVersionId=153307051
 
-### ARCHIVE CONTENTS
+### Archive Contents
 - `train_infer.py`: code for training and inferencing on the testing dataset
 - `input` folder: training and testing dataset folder
   - `kf-dataset`: Generated kids frontier dataset
   - `llm-detect-ai-generated-text/train_essays.csv`: The original training dataset
   - `daigt-v2-train-dataset/train_v2_drcat_02.csv`: Kaggle published dataset
+
+### Data setup (assumes the [Kaggle API](https://github.com/Kaggle/kaggle-api) is installed)
+Below are the shell commands used in each step, as run from the top level directory
+
+Download competition dataset
+```
+cd input/
+kaggle competitions download -c llm-detect-ai-generated-text
+unzip llm-detect-ai-generated-text.zip -d llm-detect-ai-generated-text
+cd ..
+```
+Download daigt-v2-train-dataset
+```
+cd input/
+kaggle datasets download -d thedrcat/daigt-v2-train-dataset
+unzip daigt-v2-train-dataset.zip -d daigt-v2-train-dataset
+cd ../..
+
+kaggle competitions download -c <competition name> -f train.csv
+kaggle competitions download -c <competition name> -f test_stage_1.csv
+```
+Download kids-frontier dataset
+```
+cd input/
+kaggle datasets download -d xyzdivergence/kf-dataset
+unzip kf-dataset.zip -d kf-dataset
+cd ../..
+```
 
 ### Hardware: 
 Kaggle Kernels only: Intel(R) Xeon(R) CPU @ 2.20GHz
@@ -20,9 +48,9 @@ Kaggle Kernels only: Intel(R) Xeon(R) CPU @ 2.20GHz
 
 ### Environment setup
 ```
-$ conda create --name daigt python=3.10.12
-$ conda activate daigt
-$ pip install -r requirements.txt
+> conda create --name daigt python=3.10.12
+> conda activate daigt
+> pip install -r requirements.txt
 ```
 
 ### Training + Infer
@@ -43,7 +71,7 @@ The script:`train_infer.py` performs the following preprocessing and training on
 Arguments:
 - -\-test_essays: "This is the test_essays.csv from the "public + private" test set
 ```
-$ python train_infer.py --test_essays ''input/llm-detect-ai-generated-text/test_essays.csv"
+> python train_infer.py --test_essays ''input/llm-detect-ai-generated-text/test_essays.csv"
 ```
 submission.csv will be generated in the same folder.
 
